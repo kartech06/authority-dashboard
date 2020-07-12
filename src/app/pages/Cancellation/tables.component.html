@@ -1,0 +1,126 @@
+<div class="wrapper default-theme" [ngClass]="getClasses()">
+  <app-navbar></app-navbar>
+<main>
+  <app-sidebar></app-sidebar>
+  <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+<div>
+
+  <h4 class="text-muted mb-4">Cancellations</h4>
+
+ 
+  <div class="row">
+
+    <div class="col-md-12 mb-4">
+
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Buses with low demand</h5>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive-md">
+            <div class="table-responsive">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Bus Number</th>
+                    <th>Seats filled(till now)</th>
+                    <th>Date</th>
+                    <th>D-time</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>536 - okhla-saket</td>
+                    <td class="align-middle">
+                      <div class="progress" style="height: 3px;">
+                        <div class="progress-bar bg-danger" style="width: 35% ;"></div>
+                      </div>
+                    </td>
+                    <td>September 15, 2020</td>
+                    <td>20:00</td>
+                    <td >
+                     <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>045 - maujpur-badli</td>
+                    <td class="align-middle">
+                      <div class="progress" style="height: 3px;">
+                        <div class="progress-bar bg-warning" style="width: 43%; "></div>
+                      </div>
+                    </td>
+                    <td>September 4, 2020</td>
+                    <td>17:00</td>
+                    <td >
+                     <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>045 - maujpur-badli</td>
+                    <td class="align-middle">
+                      <div class="progress" style="height: 3px;">
+                        <div class="progress-bar bg-primary" style="width:60%; "></div>
+                      </div>
+                    </td>
+                    <td>September 6, 2020</td>
+                    <td>13:00</td>
+                    <td >
+                     <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="col-md-12 mb-4 ">
+
+      <div class="card border-0 rounded-0">
+        <div class="card-title mb-1 p-3">
+          <h5>Cancel</h5>
+        </div>
+        <div class="card-body">
+          <form #cancel="ngForm">
+            <div class="form-group">
+              <label for="exampleFormControlSelect1">Type</label>
+              <select class="form-control rounded-0" id="exampleFormControlSelect1">
+                <option>Bus</option>
+                <option>Train</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Bus Name</label>
+              <input name="bname" type="text" #bname="ngModel" ngModel class="form-control  rounded-0" id="exampleFormControlInput1" placeholder="Marcopolo" required>
+              <div *ngIf="bname.errors && (bname.invalid && bname.touched)" >
+                <small class="text-danger" *ngIf="bname.errors.required">This field is required</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="exampleFormControlInput1">Bus Number</label>
+              <input name="bnumber" type="text" #bnumber="ngModel" ngModel class="form-control  rounded-0" id="exampleFormControlInput1" placeholder="000" required>
+              <div *ngIf="bnumber.errors && (bnumber.invalid && bnumber.touched)" >
+                <small class="text-danger" *ngIf="bnumber.errors.required">This field is required</small>
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="button " class="btn btn-outline-lightning rounded-0 mb-2">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+<app-footer></app-footer>
+  </div>
+  <div class="overlay" (click)="toggleSidebar()"></div>
+</main>
+</div>

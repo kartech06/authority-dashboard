@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { AppService } from 'src/app/services/app.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,19 +9,18 @@ import { Chart } from 'chart.js';
 })
 export class DashboardComponent implements OnInit {
 
-
   chart1 = {
     data :{
       labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       datasets: [{
-          label: 'Premium',
+          label: 'Monthly-pass',
           data: [50, 80, 60, 120, 80, 100, 60],
           backgroundColor: 'transparent',
           borderColor: '#5b6582',
           borderWidth: 2
       },
       {
-        label: 'Free',
+        label: 'Normal',
         data: [100, 60, 80, 50, 140, 60, 100],
         backgroundColor: 'transparent',
         borderColor: '#36a2eb',
@@ -51,14 +51,14 @@ export class DashboardComponent implements OnInit {
     data :{
       labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       datasets: [{
-          label: 'Premium',
+          label: 'Monthly-pass',
           data: [50, 80, 60, 120, 80, 100, 60],
           backgroundColor: '#5b6582',
           borderColor: '#5b6582',
           borderWidth: 2
       },
       {
-        label: 'Free',
+        label: 'Normal',
         data: [100, 60, 80, 50, 140, 60, 100],
         backgroundColor: '#36a2eb',
         borderColor: '#36a2eb',
@@ -111,7 +111,17 @@ export class DashboardComponent implements OnInit {
     }
   };
 
-  constructor() { }
+  constructor(private appService: AppService) {}
+  getClasses() {
+    const classes = {
+      'pinned-sidebar': this.appService.getSidebarStat().isSidebarPinned,
+      'toggeled-sidebar': this.appService.getSidebarStat().isSidebarToggeled
+    }
+    return classes;
+  }
+  toggleSidebar() {
+    this.appService.toggleSidebar();
+  }
 
   ngOnInit() {
 

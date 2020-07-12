@@ -3,11 +3,11 @@ import { AppService } from 'src/app/services/app.service';
 
 
 @Component({
-  selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.scss']
+  selector: 'app-notifications',
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.component.scss']
 })
-export class MapsComponent implements OnInit {
+export class NotificationsComponent implements OnInit {
 
   constructor(private appService: AppService) {}
   getClasses() {
@@ -21,7 +21,10 @@ export class MapsComponent implements OnInit {
     this.appService.toggleSidebar();
   }
 
+
   ngOnInit() {
   }
+
+
 
 }

@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
 
-
 @Component({
-  selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.scss']
+  selector: 'app-forms',
+  templateUrl: './forms.component.html',
+  styleUrls: ['./forms.component.scss']
 })
-export class MapsComponent implements OnInit {
+export class FormsComponent implements OnInit {
 
   constructor(private appService: AppService) {}
   getClasses() {

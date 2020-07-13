@@ -1,0 +1,120 @@
+<div class="wrapper default-theme" [ngClass]="getClasses()">
+    <app-navbar></app-navbar>
+  <main>
+    <app-tsidebar></app-tsidebar>
+    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+  <div>
+  
+    <h4 class="text-muted mb-4">Cancellations</h4>
+  
+   
+    <div class="row">
+  
+      <div class="col-md-12 mb-4">
+  
+        <div class="card border-0 rounded-0">
+          <div class="card-title mb-1 p-3">
+            <h5>Train with low demand</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive-md">
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Train Number</th>
+                      <th>Seats filled(till now)</th>
+                      <th>Date</th>
+                      <th>D-time</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>3234 - Punjab Mail</td>
+                      <td class="align-middle">
+                        <div class="progress" style="height: 3px;">
+                          <div class="progress-bar bg-danger" style="width: 35% ;"></div>
+                        </div>
+                      </td>
+                      <td>September 15, 2020</td>
+                      <td>20:00</td>
+                      <td >
+                       <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>4211 - Shan-e-Punjab</td>
+                      <td class="align-middle">
+                        <div class="progress" style="height: 3px;">
+                          <div class="progress-bar bg-warning" style="width: 43%; "></div>
+                        </div>
+                      </td>
+                      <td>September 4, 2020</td>
+                      <td>17:00</td>
+                      <td >
+                       <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>5410 - Rajdhani express</td>
+                      <td class="align-middle">
+                        <div class="progress" style="height: 3px;">
+                          <div class="progress-bar bg-primary" style="width:60%; "></div>
+                        </div>
+                      </td>
+                      <td>September 6, 2020</td>
+                      <td>13:00</td>
+                      <td >
+                       <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+  
+    </div>
+    <div class="row">
+      <div class="col-md-12 mb-4 ">
+  
+        <div class="card border-0 rounded-0">
+          <div class="card-title mb-1 p-3">
+            <h5>Cancel</h5>
+          </div>
+          <div class="card-body">
+            <form #cancel="ngForm">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Train Name</label>
+                <input name="tname" type="text" #tname="ngModel" ngModel class="form-control  rounded-0" id="exampleFormControlInput1" placeholder="Shatabdi express" required>
+                <div *ngIf="tname.errors && (tname.invalid && tname.touched)" >
+                  <small class="text-danger" *ngIf="tname.errors.required">This field is required</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Train Number</label>
+                <input name="tnumber" type="text" tbnumber="ngModel" ngModel class="form-control  rounded-0" id="exampleFormControlInput1" placeholder="0000" required>
+                <div *ngIf="tnumber.errors && (tnumber.invalid && tnumber.touched)" >
+                  <small class="text-danger" *ngIf="tnumber.errors.required">This field is required</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="button " class="btn btn-outline-lightning rounded-0 mb-2">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <app-footer></app-footer>
+    </div>
+    <div class="overlay" (click)="toggleSidebar()"></div>
+  </main>
+  </div>
+  

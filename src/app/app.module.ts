@@ -22,6 +22,12 @@ import { MapsComponent } from './pages/maps/maps.component';
 import { NotificationsComponent } from './pages/Changing info/notifications.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
+import { TraindbComponent } from './pages/traindb/traindb.component';
+import { RetrainComponent } from './pages/retrain/retrain.component';
+import { CancelComponent } from './pages/cancel/cancel.component';
+import { MaptrainComponent } from './pages/maptrain/maptrain.component';
+import { OccupancyComponent } from './pages/occupancy/occupancy.component';
+import { TsidebarComponent } from './components/tsidebar/tsidebar.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +42,13 @@ import { SigninComponent } from './pages/signin/signin.component';
     MapsComponent,
     NotificationsComponent,
     SignupComponent,
-    SigninComponent
+    SigninComponent,
+    TraindbComponent,
+    RetrainComponent,
+    CancelComponent,
+    MaptrainComponent,
+    OccupancyComponent,
+    TsidebarComponent
   ],
   imports: [
     FormsModule,

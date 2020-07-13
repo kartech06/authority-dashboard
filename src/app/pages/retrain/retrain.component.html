@@ -1,0 +1,179 @@
+<div class="wrapper default-theme" [ngClass]="getClasses()">
+    <app-navbar></app-navbar>
+  
+  <main>
+    <app-tsidebar></app-tsidebar>
+    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+  <div>
+  
+    <h4 class="mb-4 text-muted">Rescheduling</h4>
+  
+    <div class="row mb-4">
+  
+      <div class="col-md-12">
+        <div class="card border-0 rounded-0">
+          <div class="card-title mb-1 p-3">
+            <h5>Today's Schedule</h5>
+          </div>
+          <div class="card-body">
+            <div class="table-responsive-md">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Train Name</th>
+                    <th scope="col">Train Number</th>
+                    <th scope="col">Source</th>
+                    <th scope="col">Destination</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Something</th>
+                    <td>3041</td>
+                    <td>Nizamudin R.S</td>
+                    <td>Katra R.S</td>
+                    <td>07:00</td>
+                    <td>
+                      <span class="badge badge-primary rounded-0 p-1">Fixed</span>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2 ">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Something</th>
+                    <td>0736</td>
+                    <td>New Delhi R.S</td>
+                    <td>Punjab</td>
+                    <td>16:00</td>
+                    <td>
+                      <span class="badge badge-warning rounded-0 p-1">partially demand</span>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 ">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Something</th>
+                    <td>3730</td>
+                    <td>Katra</td>
+                    <td>Mumbai</td>
+                    <td>16:00</td>
+                    <td>
+                      <span class="badge badge-success rounded-0 p-1">On high demand</span>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 ">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Something</th>
+                    <td>0730</td>
+                    <td>Jammu & Kashmir</td>
+                    <td>Goa</td>
+                    <td>16:00</td>
+                    <td>
+                      <span class="badge badge-warning rounded-0 p-1">partially demand</span>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 ">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Something</th>
+                    <td>073</td>
+                    <td>Shahdra R.S</td>
+                    <td>Faridabad</td>
+                    <td>16:00</td>
+                    <td>
+                      <span class="badge badge-dark rounded-0 p-1">No demand</span>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 mr-2">
+                        <i class="far fa-edit"></i>
+                      </a>
+                      <a class="btn btn-sm btn-outline-lightning rounded-0 ">
+                        <i class="far fa-trash-alt"></i>
+                      </a>
+                    </td>
+                  </tr>   
+               </tbody>
+              </table>
+            </div>
+  
+          </div>
+        </div>
+  
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12 mb-4 ">
+  
+        <div class="card border-0 rounded-0">
+          <div class="card-title mb-1 p-3">
+            <h5>Reschedule</h5>
+            <div class="alert alert-danger" *ngIf="errorMsg">
+              {{errorMsg}}
+            </div>                                    
+          </div>
+          <div class="card-body">
+            <form #trainfrom="ngForm" (ngSubmit)="onSubmit()">
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Train Name</label>
+                <input name="prevtno" #tname="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="retrain.name" placeholder="Shatabdi express" required>
+                <div *ngIf="tname.errors && (tname.invalid && tname.touched)" >
+                  <small class="text-danger" *ngIf="prev.errors.required">This Field is required</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlInput1">Train Number</label>
+                <input name="newtno" #tnumber="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="retrain.number" placeholder="0000" required>
+                <div *ngIf="tnumber.errors && (tnumber.invalid && tnumber.touched)" >
+                  <small class="text-danger" *ngIf="tnumber.errors.required">This Field is required</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlTime1">Revised Time</label>
+                <input name="time" #rtime="ngModel" type="time" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="retrain.time" required>
+                <div *ngIf="rtime.errors && (rtime.invalid && rtime.touched)" >
+                  <small class="text-danger" *ngIf="rtime.errors.required">This Field is required</small>
+                </div>
+              </div>
+              <div class="form-group">
+                <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <app-footer></app-footer>
+    </div>
+    <div class="overlay" (click)="toggleSidebar()"></div>
+  </main>
+  </div>

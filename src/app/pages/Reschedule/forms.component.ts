@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { RescheduleB } from '../../services/reschedule';
+import { BusService } from '../../services/bus.service';
+import { Router } from '@angular/router';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-forms',
@@ -7,8 +11,12 @@ import { AppService } from 'src/app/services/app.service';
   styleUrls: ['./forms.component.scss']
 })
 export class FormsComponent implements OnInit {
-
-  constructor(private appService: AppService) {}
+rebus=new RescheduleB('','','');
+errorMsg="";
+  constructor(
+        private appService: AppService,
+        private busservice: BusService ,
+        private router: Router) {}
   getClasses() {
     const classes = {
       'pinned-sidebar': this.appService.getSidebarStat().isSidebarPinned,
@@ -21,6 +29,20 @@ export class FormsComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+  onSubmit()
+  {
+    console.log(this.rebus);
+      this.busservice.check(this.rebus)
+      .subscribe(
+        data => {console.log("Success!!!",data);
+        this.router.navigate(['/dashboard']);},
+        error => {
+                  console.log("Error!",error);
+                  this.errorMsg=error.error;
+                  this.router.navigate(['/reschedule']);
+                }
+      )
   }
 
 }

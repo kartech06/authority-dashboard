@@ -15,16 +15,6 @@ export class SigninComponent implements OnInit {
   }
   login = new Login("","","");
   errorMsg='';
-  // passbool=false;
-  // confpass : string;
-  // passcheck()
-  // {
-  //   if(this.Authoritymodel.password==this.confpass)
-  //   {
-  //     this.passbool=true;
-  //   //  return this.passbool;
-  //   }
-  // }
   onSubmit()
     {
       console.log(this.login);
@@ -32,7 +22,14 @@ export class SigninComponent implements OnInit {
         .subscribe(
           data => {console.log("Success!!!",data);
           localStorage.setItem('token', data.token);
-          this.router.navigate(['/dashboard']);},
+          if(data.type=="Bus"){
+          this.router.navigate(['/dashboard']);
+          }
+          else
+          {
+          this.router.navigate(['/train-dashboard']);
+          }
+        },
           error => {
                     console.log("Error!",error);
                     this.errorMsg=error.error;

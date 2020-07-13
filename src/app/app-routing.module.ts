@@ -8,11 +8,21 @@ import { MapsComponent } from './pages/maps/maps.component';
 import { NotificationsComponent } from './pages/Changing info/notifications.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { SigninComponent } from './pages/signin/signin.component';
-
+import { TraindbComponent } from './pages/traindb/traindb.component';
+import { RetrainComponent } from './pages/retrain/retrain.component';
+import { CancelComponent } from './pages/cancel/cancel.component';
+import { MaptrainComponent } from './pages/maptrain/maptrain.component';
+import { OccupancyComponent } from './pages/occupancy/occupancy.component';
+import { TsidebarComponent } from './components/tsidebar/tsidebar.component';
 
 
 const routes: Routes = [
   {path: '',   redirectTo: '/signin', pathMatch: 'full'},
+  {path: 'train-dashboard', component: TraindbComponent},
+  {path: 'train-reschedule',component: RetrainComponent},
+  {path: 'train-cancel',component: CancelComponent},
+  {path: 'train-location',component: MaptrainComponent},
+  {path: 'train-occupancy',component: OccupancyComponent},
   {path: 'dashboard', component: DashboardComponent},
   {path:'signup' , component: SignupComponent},
   {path:'signin' , component: SigninComponent},
@@ -20,7 +30,7 @@ const routes: Routes = [
   {path: 'cancellation', component: TablesComponent},
   {path: 'typography', component: TypographyComponent},
   {path: 'maps', component: MapsComponent},
-  {path: 'changeinfo', component: NotificationsComponent}
+  {path: 'occupancy', component: NotificationsComponent}
 ];
 
 @NgModule({

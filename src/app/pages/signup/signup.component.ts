@@ -13,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  Authoritymodel = new Authority("","","","","");
+  Authoritymodel = new Authority("","","","","","");
   errorMsg='';
   passbool=false;
   confpass : string;

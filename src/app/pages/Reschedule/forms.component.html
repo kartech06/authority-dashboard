@@ -140,30 +140,33 @@
           </div>                                    
         </div>
         <div class="card-body">
-          <form #busfrom="ngForm" (ngSubmit)="onSubmit()">
+          <form #busForm="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
               <label for="exampleFormControlInput1">Bus Number to be changed</label>
-              <input name="prevbno" #prev="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.prev_bus_no" placeholder="000" required>
+              <input name="prev" #prev="ngModel" pattern="^\d[0-9]{2}$" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.prev_bus_no" placeholder="000" required>
               <div *ngIf="prev.errors && (prev.invalid && prev.touched)" >
                 <small class="text-danger" *ngIf="prev.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="prev.errors.pattern">Bus Number must be 3 digits and numeric</small>
               </div>
             </div>
             <div class="form-group">
               <label for="exampleFormControlInput1">New Bus Number</label>
-              <input name="newbno" #new="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.new_bus_no" placeholder="000" required>
+              <input name="new" #new="ngModel" pattern="^\d[0-9]{2}$" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.new_bus_no" placeholder="000" required>
               <div *ngIf="new.errors && (new.invalid && new.touched)" >
                 <small class="text-danger" *ngIf="new.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="new.errors.pattern">Bus Number must be 3 digits and numeric</small>
               </div>
             </div>
             <div class="form-group">
               <label for="exampleFormControlTime1">Quantity</label>
-              <input name="qty" #qty="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.quantity" required>
+              <input name="qty" #qty="ngModel" type="text"  pattern="^\d[0-9]$" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.quantity" required>
               <div *ngIf="qty.errors && (qty.invalid && qty.touched)" >
-                <small class="text-danger" *ngIf="new.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="qty.errors.required">This Field is required</small>
+                <small class="text-danger" *ngIf="qty.errors.pattern">Only numbers</small>
               </div>
             </div>
             <div class="form-group">
-              <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
+              <button [disabled]="busForm.form.invalid" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
             </div>
           </form>
         </div>

@@ -32,15 +32,17 @@ export class RetrainComponent implements OnInit {
     }
     onSubmit()
     {
+      console.log("Mai to chal rha hu bhai!!!");
+      
       console.log(this.retrain);
         this.trainservice.check(this.retrain)
         .subscribe(
           data => {console.log("Success!!!",data);
-          this.router.navigate(['/dashboard']);},
+          this.router.navigate(['/train-dashboard']);},
           error => {
                     console.log("Error!",error);
                     this.errorMsg=error.error;
-                    this.router.navigate(['/reschedule']);
+                    this.router.navigate(['/train-reschedule']);
                   }
         )
     }

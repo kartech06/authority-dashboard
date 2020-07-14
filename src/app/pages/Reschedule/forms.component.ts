@@ -32,6 +32,7 @@ errorMsg="";
   }
   onSubmit()
   {
+    console.log("working!");
     console.log(this.rebus);
       this.busservice.check(this.rebus)
       .subscribe(

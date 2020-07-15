@@ -9,6 +9,7 @@ import { throwError} from 'rxjs';
   providedIn: 'root'
 })
 export class SigninService {
+  username="";
   _url='http://localhost:8080/authorities/login';
   constructor(private http:HttpClient) { }
   check(login: Login)

@@ -5,15 +5,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-body{
-	font-family: 'Poppins', sans-serif;
-	font-weight: 300;
-	font-size: 15px;
-	line-height: 1.7;
-	color: #c4c3ca;
-	background-color: #1f2029;
-	overflow-x: hidden;
-}
 a {
 	cursor: pointer;
   transition: all 200ms linear;
@@ -48,26 +39,6 @@ h6 span{
 .full-height{
   min-height: 100vh;
 }
-.card-3d-wrap {
-  position: relative;
-  width: 440px;
-  max-width: 100%;
-  height: 400px;
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  perspective: 800px;
-  margin-top: 60px;
-}
-.card-3d-wrapper {
-  width: 100%;
-  height: 100%;
-  position:absolute;    
-  top: 0;
-  left: 0;  
-  -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-  transition: all 600ms ease-out; 
-}
 .card-front {
   color: #c4c3ca;
   width: 100%;
@@ -99,10 +70,10 @@ h6 span{
   display: block;
 }
 
-
 .form-group{
       margin-left: 30%;
 }
+
 .form-style {
   padding: 13px 20px;
   padding-left: 55px;
@@ -224,10 +195,6 @@ h6 span{
   color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
 }
-
-
-
-
 .logo {
 	position: absolute;
 	top: 30px;
@@ -240,4 +207,9 @@ h6 span{
 	height: 26px;
 	width: auto;
 	display: block;
+}
+@media screen and (max-width: 992px) {
+  .form-group {
+    margin-left: 0;
+  }
 }

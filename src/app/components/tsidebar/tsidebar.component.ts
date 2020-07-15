@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {SigninService} from '../../services/signin.service';
+
 
 @Component({
   selector: 'app-tsidebar',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TsidebarComponent implements OnInit {
 
-  constructor() { }
+  constructor( private AuthorSignin: SigninService ) { }
 
   ngOnInit(): void {
   }
+  name=this.AuthorSignin.username;
 
 }

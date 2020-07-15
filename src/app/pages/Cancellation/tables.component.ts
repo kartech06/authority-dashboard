@@ -10,6 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./tables.component.scss']
 })
 export class TablesComponent implements OnInit {
+  source="";
+  destination="";
+  path=[];
+  qty="";
 cancel=new CancelB("");
   constructor(private appService: AppService,private bus: BusService,private router: Router) {}
   getClasses() {
@@ -34,10 +38,19 @@ cancel=new CancelB("");
       this.bus.cancelb(this.cancel)
       .subscribe(
         data => {console.log("Success!!!",data);
-        this.router.navigate(['/dashboard']);},
+        this.router.navigate(['/dashboard']);
+        this.source=data.source;
+        console.log(this.source);        
+        this.destination=data.destination;
+        console.log(this.destination); 
+        this.path=data.path;
+        console.log(this.path);
+        this.qty=data.quantity;
+        console.log(this.qty);
+      },
         error => {
                   console.log("Error!",error);
-                  this.router.navigate(['/cancellations']);
+                  this.router.navigate(['/check-information']);
                 }
       )
 

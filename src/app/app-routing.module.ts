@@ -27,7 +27,7 @@ const routes: Routes = [
   {path:'signup' , component: SignupComponent},
   {path:'signin' , component: SigninComponent},
   {path: 'reschedule', component: FormsComponent},
-  {path: 'cancellation', component: TablesComponent},
+  {path: 'check-information', component: TablesComponent},
   {path: 'typography', component: TypographyComponent},
   {path: 'maps', component: MapsComponent},
   {path: 'occupancy', component: NotificationsComponent}

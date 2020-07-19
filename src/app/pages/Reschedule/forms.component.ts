@@ -13,6 +13,7 @@ import { from } from 'rxjs';
 export class FormsComponent implements OnInit {
 rebus=new RescheduleB('','','');
 errorMsg="";
+successMsg="";
   constructor(
         private appService: AppService,
         private busservice: BusService ,
@@ -37,7 +38,8 @@ errorMsg="";
       this.busservice.check(this.rebus)
       .subscribe(
         data => {console.log("Success!!!",data);
-        this.router.navigate(['/dashboard']);},
+        this.successMsg=data;
+},
         error => {
                   console.log("Error!",error);
                   this.errorMsg=error.error;

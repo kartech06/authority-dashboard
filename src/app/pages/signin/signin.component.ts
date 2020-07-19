@@ -23,6 +23,7 @@ export class SigninComponent implements OnInit {
           data => {console.log("Success!!!",data);
           localStorage.setItem('token', data.token);
           this.AuthorSignin.username=data.name;
+          this.AuthorSignin.storeUserData(data.token);
           if(data.type=="Bus"){
           this.router.navigate(['/dashboard']);
           }

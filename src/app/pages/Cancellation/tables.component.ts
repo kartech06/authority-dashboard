@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./tables.component.scss']
 })
 export class TablesComponent implements OnInit {
+  fetch=[];
   source="";
   destination="";
   path=[];
@@ -31,6 +32,19 @@ cancel=new CancelB("");
   ngOnInit() {
   }
 
+  Openpopup()
+  {
+    document.getElementById("overlay").style.visibility = "visible";
+    document.getElementById("overlay").style.opacity = "1";
+    document.getElementById("hell").style.opacity = "0.2";
+  }
+  Closepopup()
+  {
+    document.getElementById("overlay").style.visibility = "hidden";
+    document.getElementById("overlay").style.opacity = "0";
+    document.getElementById("hell").style.opacity = "1";
+  }
+
   onSubmit()
   {
     console.log("working!");
@@ -38,15 +52,15 @@ cancel=new CancelB("");
       this.bus.cancelb(this.cancel)
       .subscribe(
         data => {console.log("Success!!!",data);
-        this.router.navigate(['/dashboard']);
-        this.source=data.source;
-        console.log(this.source);        
-        this.destination=data.destination;
-        console.log(this.destination); 
-        this.path=data.path;
+        this.fetch=data[0];
+        this.source=data[0].source;
+        console.log(this.source);
+        this.destination=data[0].destination;
+        this.path=data[0].path;
         console.log(this.path);
-        this.qty=data.quantity;
-        console.log(this.qty);
+        this.qty=data[0].quantity;
+        
+        
       },
         error => {
                   console.log("Error!",error);

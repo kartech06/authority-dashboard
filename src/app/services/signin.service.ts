@@ -10,6 +10,7 @@ import { throwError} from 'rxjs';
 })
 export class SigninService {
   username="";
+  auth_token: any;
   _url='http://localhost:8080/authorities/login';
   constructor(private http:HttpClient) { }
   check(login: Login)
@@ -20,6 +21,16 @@ export class SigninService {
   errorHandler(error: HttpErrorResponse)
   {
     return throwError(error);
+  }
+  storeUserData(token)
+  {
+    localStorage.setItem('token', token);
+    this.auth_token = token;
+  }
+  Logout()
+  {
+    this.auth_token = null;
+    localStorage.clear();
   }
 
 }

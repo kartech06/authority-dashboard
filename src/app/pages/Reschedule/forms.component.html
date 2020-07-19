@@ -138,6 +138,9 @@
           <div class="alert alert-danger" *ngIf="errorMsg">
             {{errorMsg}}
           </div>                                    
+          <div class="alert alert-success" *ngIf="successMsg">
+            {{successMsg}}
+          </div>                                    
         </div>
         <div class="card-body">
           <form #busForm="ngForm" (ngSubmit)="onSubmit()">
@@ -159,7 +162,7 @@
             </div>
             <div class="form-group">
               <label for="exampleFormControlTime1">Quantity</label>
-              <input name="qty" #qty="ngModel" type="text"  pattern="^\d[0-9]$" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.quantity" required>
+              <input name="qty" #qty="ngModel" type="text" class="form-control  rounded-0" id="exampleFormControlInput1" [(ngModel)]="rebus.quantity" required>
               <div *ngIf="qty.errors && (qty.invalid && qty.touched)" >
                 <small class="text-danger" *ngIf="qty.errors.required">This Field is required</small>
                 <small class="text-danger" *ngIf="qty.errors.pattern">Only numbers</small>

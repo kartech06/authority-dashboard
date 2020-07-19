@@ -2,7 +2,7 @@
   <app-navbar></app-navbar>
 <main>
   <app-sidebar></app-sidebar>
-  <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+  <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 " id="hell">
 <div>
 
   <h4 class="text-muted mb-4">Checking Information</h4>
@@ -26,7 +26,6 @@
                     <th>Seats filled(till now)</th>
                     <th>Date</th>
                     <th>D-time</th>
-                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -39,9 +38,6 @@
                     </td>
                     <td>September 15, 2020</td>
                     <td>20:00</td>
-                    <td >
-                     <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
-                    </td>
                   </tr>
                   <tr>
                     <td>045 - maujpur-badli</td>
@@ -52,9 +48,6 @@
                     </td>
                     <td>September 4, 2020</td>
                     <td>17:00</td>
-                    <td >
-                     <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
-                    </td>
                   </tr>
                   <tr>
                     <td>045 - maujpur-badli</td>
@@ -65,9 +58,6 @@
                     </td>
                     <td>September 6, 2020</td>
                     <td>13:00</td>
-                    <td >
-                     <a class="btn btn-sm btn-outline-lightning rounded-0"><i class="fa fa-ban mr-1"></i>Cancel</a>
-                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -96,7 +86,7 @@
               </div>
             </div>
             <div class="form-group">
-              <button type="button " class="btn btn-outline-lightning rounded-0 mb-2">Search</button>
+              <button (click)="Openpopup()" [disabled]="cancelForm.form.invalid" class="btn btn-outline-lightning rounded-0 mb-2">Search</button>
             </div>
           </form>
         </div>
@@ -107,6 +97,19 @@
 <hr>
 <app-footer></app-footer>
   </div>
+  <div id="popup1" id="overlay" *ngIf="fetch">
+    <div id="popup">
+      <h2>INFORMATION :-</h2>
+      <h3>Stops :-</h3>
+        <ul>
+          <li *ngFor="let appl of path">{{appl}}</li>  
+        </ul>
+        <h4>Source:{{source}}</h4>
+        <h4>Destination:{{destination}}</h4>
+        <h4>Quantity:{{qty}}</h4>
+        <a class="close" (click)="Closepopup()">&times;</a>              
+    </div>       
+  </div >
   <div class="overlay" (click)="toggleSidebar()"></div>
 </main>
 </div>

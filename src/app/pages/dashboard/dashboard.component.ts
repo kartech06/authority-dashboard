@@ -8,7 +8,10 @@ import{ BusService } from '../../services/bus.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  dbitems="";
+  bookings="";
+  totalPrice="";
+  buses='';
+  users="";
   chart1 = {
     data :{
       labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -127,7 +130,11 @@ export class DashboardComponent implements OnInit {
 
    this.bus.getdb().subscribe(
      data=> {
-       console.log("Success!",data);       
+       console.log("Success!",data);
+       this.bookings=data.bookings;
+       this.buses=data.buses;
+       this.totalPrice=data.totalPrice;
+       this.users=data.users;       
      },
      error => {
        console.log("Error!",error);       

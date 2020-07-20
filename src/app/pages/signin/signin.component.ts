@@ -21,7 +21,6 @@ export class SigninComponent implements OnInit {
         this.AuthorSignin.check(this.login)
         .subscribe(
           data => {console.log("Success!!!",data);
-          localStorage.setItem('token', data.token);
           this.AuthorSignin.username=data.name;
           this.AuthorSignin.storeUserData(data.token);
           if(data.type=="Bus"){

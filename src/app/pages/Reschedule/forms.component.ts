@@ -3,6 +3,7 @@ import { AppService } from 'src/app/services/app.service';
 import { RescheduleB } from '../../services/reschedule';
 import { BusService } from '../../services/bus.service';
 import { Router } from '@angular/router';
+import { SigninService } from '../../services/signin.service';
 import { from } from 'rxjs';
 
 @Component({
@@ -17,6 +18,7 @@ successMsg="";
   constructor(
         private appService: AppService,
         private busservice: BusService ,
+        private AuthorSignin: SigninService,
         private router: Router) {}
   getClasses() {
     const classes = {

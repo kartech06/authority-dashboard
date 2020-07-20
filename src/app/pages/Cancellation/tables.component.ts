@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class TablesComponent implements OnInit {
   fetch=[];
+  len="";
   source="";
   destination="";
   path=[];
@@ -53,11 +54,10 @@ cancel=new CancelB("");
       .subscribe(
         data => {console.log("Success!!!",data);
         this.fetch=data[0];
+        this.len=data[0].path.length;
         this.source=data[0].source;
-        console.log(this.source);
         this.destination=data[0].destination;
         this.path=data[0].path;
-        console.log(this.path);
         this.qty=data[0].quantity;
         
         

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { AppService } from 'src/app/services/app.service';
-
+import{ BusService } from '../../services/bus.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-
+  dbitems="";
   chart1 = {
     data :{
       labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -111,7 +111,7 @@ export class DashboardComponent implements OnInit {
     }
   };
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService,private bus: BusService) {}
   getClasses() {
     const classes = {
       'pinned-sidebar': this.appService.getSidebarStat().isSidebarPinned,
@@ -124,6 +124,17 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+   this.bus.getdb().subscribe(
+     data=> {
+       console.log("Success!",data);
+       
+       this.dbitems=data;
+     },
+     error => {
+       console.log("Error!",error);
+     }
+   )
 
  new Chart('chart-line',  {
       type: 'line',

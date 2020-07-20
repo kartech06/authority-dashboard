@@ -13,6 +13,7 @@ import { from } from 'rxjs';
 export class RetrainComponent implements OnInit {
   retrain=new Train('','','');
   errorMsg="";
+  successMsg=""
     constructor(
           private appService: AppService,
           private trainservice: TrainService ,
@@ -31,14 +32,14 @@ export class RetrainComponent implements OnInit {
     ngOnInit() {
     }
     onSubmit()
-    {
-      console.log("Mai to chal rha hu bhai!!!");
-      
+    {      
       console.log(this.retrain);
         this.trainservice.check(this.retrain)
         .subscribe(
           data => {console.log("Success!!!",data);
-          this.router.navigate(['/train-dashboard']);},
+          this.successMsg=data;
+          this.router.navigate(['/train-reschedule']);
+        },
           error => {
                     console.log("Error!",error);
                     this.errorMsg=error.error;

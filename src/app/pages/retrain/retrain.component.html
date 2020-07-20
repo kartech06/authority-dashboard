@@ -135,6 +135,9 @@
         <div class="card border-0 rounded-0">
           <div class="card-title mb-1 p-3">
             <h5>Reschedule</h5>
+            <div class="alert alert-success" *ngIf="successMsg">
+              {{successMsg}}
+            </div>                                    
             <div class="alert alert-danger" *ngIf="errorMsg">
               {{errorMsg}}
             </div>                                    

@@ -11,6 +11,7 @@ export class BusService {
 
   _url='http://localhost:8080/authorities/reschedule/bus';
   url_="http://localhost:8080/authorities/bus/information";
+  _url_="http://localhost:8080/authorities/bus/dashboard";
   constructor(private http:HttpClient) { }
   check(rebus: RescheduleB)
   {
@@ -30,5 +31,9 @@ export class BusService {
   {
     return throwError(error);
   }
-
+  getdb()
+  {
+    return this.http.get<any>(this._url_)
+    .pipe(catchError(this.errorHandle))
+  }
 }

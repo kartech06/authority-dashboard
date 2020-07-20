@@ -130,8 +130,7 @@ export class DashboardComponent implements OnInit {
        console.log("Success!",data);       
      },
      error => {
-       console.log("Error!",error);
-       this.dbitems=error;
+       console.log("Error!",error);       
      }
    )
 

@@ -3,7 +3,7 @@ import { RescheduleB } from './reschedule';
 import { CancelB } from './cancelbus';
 import { HttpClient,HttpErrorResponse } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
-import { throwError} from 'rxjs';
+import { throwError, Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -31,9 +31,8 @@ export class BusService {
   {
     return throwError(error);
   }
-  getdb()
+  getdb() : Observable<string>
   {
-    return this.http.get<any>(this._url_)
-    .pipe(catchError(this.errorHandle))
+    return this.http.get(this._url_,{responseType: 'text'});  
   }
 }

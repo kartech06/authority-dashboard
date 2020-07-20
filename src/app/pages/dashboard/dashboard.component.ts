@@ -127,12 +127,11 @@ export class DashboardComponent implements OnInit {
 
    this.bus.getdb().subscribe(
      data=> {
-       console.log("Success!",data);
-       
-       this.dbitems=data;
+       console.log("Success!",data);       
      },
      error => {
        console.log("Error!",error);
+       this.dbitems=error;
      }
    )
 
